@@ -1,6 +1,6 @@
 ﻿/*
- * iGenerate - By a.Cincarevic 2017
- * 
+ * iGenerate - By a.Cincarevic - 2017
+ * Inspired by Dashlane's Password Generator
  */
 
 using System;
@@ -22,8 +22,12 @@ namespace PasswordGen
        "ABCDEFGHIJKLMNOPQRSTUVWXYZ" +
        "abcdefghijklmnopqrstuvwxyz";
 
-        public  string someNumbers = "0123456789";
-        public  string someSymbols = "!#%&/?=*^";
+        public string someNumbers = "0123456789";
+        public string someSymbols = "!#%&/?=*^";
+
+        public bool useChars = true;
+        public bool useNumbers = true;
+        public bool useSymbols = false;
 
         public Form1()
         {
@@ -33,38 +37,54 @@ namespace PasswordGen
 
         public string GenerateNewPassword(int newGenLength)
         {
-            if (!checkBox_chars.Checked) characterSet = "";
-            if (checkBox_num.Checked) characterSet += someNumbers;
-            if (checkBox_sym.Checked) characterSet += someSymbols;
+            string outString = "";
+            outString = useChars ? outString += characterSet : outString += "";
+            outString = useNumbers ? outString += someNumbers : outString += "";
+            outString = useSymbols ? outString += someSymbols : outString += "";
 
+            string characters = outString;
+
+            
             //MessageBox.Show("Generate Length:" + newGenLength);
             if (newGenLength < 0) throw new ArgumentException("negative length?", "Length");
             if (newGenLength > int.MaxValue / 8) throw new ArgumentException("length is too big", "Length");
-            if (characterSet == null) throw new ArgumentNullException("missing text/char referens");
+            if (characters == null) throw new ArgumentNullException("missing text/char referens");
 
-            var characterArray = characterSet.Distinct().ToArray();
+            try {
+                
+                var charArr = characters.Distinct().ToArray();
 
-            if (characterArray.Length == 0) {
-                MessageBox.Show("Select a textmethod");
-                //throw new ArgumentException("text/char referens can't be empty", "characterSet");
+                if (charArr.Length == 0) {
+                    MessageBox.Show("Select a textmethod");
+                    //throw new ArgumentException("empty referens", "characterSet");
+                }
+
+                var bytes = new byte[newGenLength * 8];
+                new RNGCryptoServiceProvider().GetBytes(bytes);
+
+                var newGenString = new char[newGenLength];
+                for (int i = 0; i < newGenLength; i++)
+                {
+                    ulong value = BitConverter.ToUInt64(bytes, i * 8);
+                    newGenString[i] = charArr[value % (uint)charArr.Length];
+                }
+                return new string(newGenString);
+
+
+
             }
-
-            var bytes = new byte[newGenLength * 8];
-            new RNGCryptoServiceProvider().GetBytes(bytes);
-
-            var newGenString = new char[newGenLength];
-            for (int i = 0; i < newGenLength; i++)
+            catch (Exception ex)
             {
-                ulong value = BitConverter.ToUInt64(bytes, i * 8);
-                newGenString[i] = characterArray[value % (uint)characterArray.Length];
+
+                MessageBox.Show("Fel uppstod:" + ex);
+                return "";
             }
-            return new string(newGenString);
         }
-
-       
-
+        
+        
         private void linkLabel_generateNew_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+
             label_newPassword.Text = GenerateNewPassword(trackBar_passLength.Value);
         }
 
@@ -80,6 +100,22 @@ namespace PasswordGen
             Clipboard.SetText(label_newPassword.Text);
         }
 
-        
+        private void checkBox_chars_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_chars.Checked) useChars = true;
+            else useChars = false;
+        }
+
+        private void checkBox_num_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_num.Checked) useNumbers = true;
+            else useNumbers = false;
+        }
+
+        private void checkBox_sym_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_sym.Checked) useSymbols = true;
+            else useSymbols = false;
+        }
     }
 }

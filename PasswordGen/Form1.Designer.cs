@@ -53,16 +53,20 @@
             this.checkBox_chars.TabIndex = 0;
             this.checkBox_chars.Text = "Chars";
             this.checkBox_chars.UseVisualStyleBackColor = true;
+            this.checkBox_chars.CheckedChanged += new System.EventHandler(this.checkBox_chars_CheckedChanged);
             // 
             // checkBox_num
             // 
             this.checkBox_num.AutoSize = true;
+            this.checkBox_num.Checked = true;
+            this.checkBox_num.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox_num.Location = new System.Drawing.Point(39, 348);
             this.checkBox_num.Name = "checkBox_num";
             this.checkBox_num.Size = new System.Drawing.Size(87, 21);
             this.checkBox_num.TabIndex = 0;
             this.checkBox_num.Text = "Numbers";
             this.checkBox_num.UseVisualStyleBackColor = true;
+            this.checkBox_num.CheckedChanged += new System.EventHandler(this.checkBox_num_CheckedChanged);
             // 
             // checkBox_sym
             // 
@@ -73,6 +77,7 @@
             this.checkBox_sym.TabIndex = 0;
             this.checkBox_sym.Text = "Symbols";
             this.checkBox_sym.UseVisualStyleBackColor = true;
+            this.checkBox_sym.CheckedChanged += new System.EventHandler(this.checkBox_sym_CheckedChanged);
             // 
             // pictureBox1
             // 
