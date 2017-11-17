@@ -177,6 +177,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Resizable = false;
+            this.ShadowType = MetroFramework.Forms.MetroForm.MetroFormShadowType.DropShadow;
             this.Style = MetroFramework.MetroColorStyle.Orange;
             this.Text = "iGenerate";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
