@@ -1,4 +1,5 @@
-﻿namespace PasswordGen
+﻿/// iGenerate - By a.Cincarevic - 2017
+namespace PasswordGen
 {
     partial class Form1
     {
@@ -28,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.checkBox_chars = new System.Windows.Forms.CheckBox();
             this.checkBox_num = new System.Windows.Forms.CheckBox();
             this.checkBox_sym = new System.Windows.Forms.CheckBox();
@@ -85,7 +87,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(-45, 88);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(465, 126);
+            this.pictureBox1.Size = new System.Drawing.Size(494, 126);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -93,12 +95,12 @@
             // 
             this.label_newPassword.AutoSize = true;
             this.label_newPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.label_newPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_newPassword.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_newPassword.ForeColor = System.Drawing.Color.White;
-            this.label_newPassword.Location = new System.Drawing.Point(24, 124);
+            this.label_newPassword.Location = new System.Drawing.Point(25, 124);
             this.label_newPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_newPassword.Name = "label_newPassword";
-            this.label_newPassword.Size = new System.Drawing.Size(0, 25);
+            this.label_newPassword.Size = new System.Drawing.Size(0, 23);
             this.label_newPassword.TabIndex = 7;
             // 
             // label_newPassLength
@@ -118,7 +120,7 @@
             this.trackBar_passLength.Maximum = 28;
             this.trackBar_passLength.Minimum = 4;
             this.trackBar_passLength.Name = "trackBar_passLength";
-            this.trackBar_passLength.Size = new System.Drawing.Size(333, 56);
+            this.trackBar_passLength.Size = new System.Drawing.Size(363, 56);
             this.trackBar_passLength.SmallChange = 2;
             this.trackBar_passLength.TabIndex = 8;
             this.trackBar_passLength.TickFrequency = 4;
@@ -130,7 +132,7 @@
             this.linkLabel_copy.AutoSize = true;
             this.linkLabel_copy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.linkLabel_copy.LinkColor = System.Drawing.Color.White;
-            this.linkLabel_copy.Location = new System.Drawing.Point(344, 174);
+            this.linkLabel_copy.Location = new System.Drawing.Point(373, 177);
             this.linkLabel_copy.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel_copy.Name = "linkLabel_copy";
             this.linkLabel_copy.Size = new System.Drawing.Size(40, 17);
@@ -144,7 +146,7 @@
             this.linkLabel_generateNew.AutoSize = true;
             this.linkLabel_generateNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.linkLabel_generateNew.LinkColor = System.Drawing.Color.White;
-            this.linkLabel_generateNew.Location = new System.Drawing.Point(270, 174);
+            this.linkLabel_generateNew.Location = new System.Drawing.Point(299, 177);
             this.linkLabel_generateNew.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel_generateNew.Name = "linkLabel_generateNew";
             this.linkLabel_generateNew.Size = new System.Drawing.Size(58, 17);
@@ -168,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(413, 424);
+            this.ClientSize = new System.Drawing.Size(437, 424);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel_copy);
             this.Controls.Add(this.linkLabel_generateNew);
@@ -179,6 +181,7 @@
             this.Controls.Add(this.checkBox_sym);
             this.Controls.Add(this.checkBox_num);
             this.Controls.Add(this.checkBox_chars);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Resizable = false;

@@ -23,7 +23,7 @@ namespace PasswordGen
        "abcdefghijklmnopqrstuvwxyz";
 
         public string someNumbers = "0123456789";
-        public string someSymbols = "!#%&/?=*^";
+        public string someSymbols = "!/#%&$?=*^~";
 
         public bool useChars = true;
         public bool useNumbers = true;
@@ -44,7 +44,6 @@ namespace PasswordGen
 
             string characters = outString;
 
-            
             //MessageBox.Show("Generate Length:" + newGenLength);
             if (newGenLength < 0) throw new ArgumentException("negative length?", "Length");
             if (newGenLength > int.MaxValue / 8) throw new ArgumentException("length is too big", "Length");
@@ -69,8 +68,6 @@ namespace PasswordGen
                     newGenString[i] = charArr[value % (uint)charArr.Length];
                 }
                 return new string(newGenString);
-
-
 
             }
             catch (Exception ex)
