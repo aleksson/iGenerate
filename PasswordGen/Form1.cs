@@ -81,7 +81,6 @@ namespace PasswordGen
         
         private void linkLabel_generateNew_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
             label_newPassword.Text = GenerateNewPassword(trackBar_passLength.Value);
         }
 
